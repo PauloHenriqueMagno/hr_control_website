@@ -1,13 +1,6 @@
-import Header from './components/Header';
-import LoginForm from './components/LoginForm';
+import './App.css';
+import Router from './navigations';
 
-function App() {
-  return (
-    <>
-      <Header />
-      <LoginForm />
-    </>
-  );
-}
+const App = () => <Router />
 
 export default App;
