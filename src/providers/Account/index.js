@@ -2,23 +2,22 @@ import { createContext, useContext, useState } from "react";
 import api from "../../services/api";
 
 
-export const AccountContext = createContext();
+export const AccountContext = createContext({});
 
 export const AccountProvider = ({children}) => {
     const [auth, setAuth] = useState(localStorage.getItem("@token") || "");
 
     const login = ({email, password}) => {
+        let data = {email, password}
         api
-        .post("/login/", {email, password})
-        .then(({data}) => {
-            setAuth(data.accessToken);
-            localStorage.setItem("@token", data.accessToken);
-            console.log(data)
+        .post("/login", data)
+        .then((response) => {
+            console.log(response)
         })
         .catch((err) => console.error("Errou", err));
     }
     return (
-        <AccountContext.Provider value={{login, auth}}>
+        <AccountContext.Provider value={{login, auth, setAuth}}>
             {children}
         </AccountContext.Provider>
     )
