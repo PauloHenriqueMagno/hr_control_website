@@ -1,13 +1,16 @@
 import { Switch, Route } from 'react-router-dom'
+import Header from '../components/Header'
+import LoginForm from '../components/LoginForm'
+
 
 const Router = () => {
   return (
     <Switch>
-      <Route path="/hr">
+      <Route exact path="/">
         <Header />
         <LoginForm />
       </Route>
-      <Route path="/">
+      <Route path="/hr">
       </Route>
     </Switch>
   )
