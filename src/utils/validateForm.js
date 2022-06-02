@@ -1,6 +1,12 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
+/**
+* This function will receive an schema to validate a form.
+*
+* It will return { register, handleSubmit, errors }
+*/
+
 const validateForm = (schema) => {
   const {
     register,
