@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 
 export const LoginBox = styled.main`
-    width: 100vw;
+    width: 100%;
 `;
 
 export const DivForm = styled.div`
