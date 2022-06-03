@@ -1,8 +1,10 @@
+import { AccountProvider } from "./Account";
+
 const Provider = ({children}) => {
   return (
-    <>
+    <AccountProvider>
       {children}
-    </>
+    </AccountProvider>
   );
 };
 
