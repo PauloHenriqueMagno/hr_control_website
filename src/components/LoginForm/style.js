@@ -15,7 +15,7 @@ export const DivForm = styled.div`
 export const TitleLogin = styled.span`
     margin: .5em;
 `;
-export const FormBox = styled.div`
+export const FormBox = styled.form`
     display: flex;
     flex-direction: column;
     padding: 3em;
