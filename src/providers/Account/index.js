@@ -1,4 +1,5 @@
 import { createContext, useContext, useState } from "react";
+import { toast } from "react-toastify";
 import api from "../../services/api";
 
 
@@ -13,8 +14,12 @@ export const AccountProvider = ({children}) => {
         .then(({data}) => {
             setAuth(data.token)
             localStorage.setItem("@token", data.token)
+            toast.success("Logado com sucesso")
         })
-        .catch((err) => console.error("Errou", err));
+        .catch((err) => {
+            toast.info("E-mail/senha incorretos")
+            console.error("Errou", err)}
+        );
     }
     return (
         <AccountContext.Provider value={{login, auth, setAuth}}>
