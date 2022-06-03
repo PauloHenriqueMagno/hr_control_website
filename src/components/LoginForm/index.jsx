@@ -9,17 +9,15 @@ const LoginForm = () => {
     
     const onSubmit = (data) => {
         login(data);
-        // console.log(data);
+        console.log(data);
     }
 
     return (
         <LoginBox>
             <DivForm>
                 <TitleLogin>Login</TitleLogin>
-                <FormBox
-                id="login"
-                 onSubmit={handleSubmit(onSubmit)}
-                 >
+                <FormBox id="login"
+                 onSubmit={handleSubmit(onSubmit)}>
                     <label>
                         <MailIcon />
                         E-mail:

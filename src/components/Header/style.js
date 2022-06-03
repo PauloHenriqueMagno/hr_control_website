@@ -20,10 +20,3 @@ export const DivBox = styled.div`
         font-weight: normal;
     }
 `;
-
-export const Nav = styled.nav`
-    a{
-        margin: 1em;
-        cursor: pointer;
-    }
-`;

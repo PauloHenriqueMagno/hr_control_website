@@ -1,15 +1,14 @@
-import { DivBox, HeaderBox, Nav } from "./style"
+import { useAccount } from "../../providers/Account"
+import Menu from "./Menu";
+import { DivBox, HeaderBox } from "./style"
 
 const Header = () => {
+    const { auth } = useAccount();
     return (
         <HeaderBox>
             <DivBox>
                 <h1>Company</h1>
-                <Nav>
-                    <a href="#">LINK 1</a>
-                    <a href="#">LINK 2</a>
-                    <a href="#">LINK 3</a>
-                </Nav>
+                {auth ? <Menu /> : " "}
             </DivBox>
         </HeaderBox>
     )
