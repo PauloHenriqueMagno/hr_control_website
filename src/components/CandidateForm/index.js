@@ -1,5 +1,7 @@
 import * as yup from "yup";
 
+import { toast } from 'react-toastify';
+
 import InputComponent from "../Input";
 
 import {
@@ -19,7 +21,9 @@ const CandidateForm = () => {
       .string()
       .email("Insira um e-mail valido")
       .required("E-mail é necessario"),
+
     name: yup.string().required("Nome é necessario"),
+
     pdf_file: yup.mixed()
       .test("Arquivo selecionado", "Arquivo pdf é necessario",
         (value) => !!value[0]
@@ -32,22 +36,28 @@ const CandidateForm = () => {
   const { register, handleSubmit, errors } = validateForm(schema);
 
   const submit = (data) => {
-    console.log(data)
-
     let newData = new FormData();
 
     newData.append('email', data["email"]);
     newData.append('name', data["name"]);
-    newData.append('pdf_file', "fsdfsdfs" );
+    newData.append('pdf_file', data["pdf_file"][0] );
 
     api
-      .post('/api/candidates/', newData, {
+      .post('/candidates/', newData, {
         headers: { 
-          "Content-Type": "multipart/form-data",
+          "Content-Type": "multipart/form-data"
         },
       })
-      .then((response) => console.log(response))
-      .catch((error) => console.log(error.message))
+      .then((response) => {
+        toast.success("Currículo enviado")
+      })
+      .catch((error) => {
+        if (!!error.response.data.email) {
+          toast.info("Email já em uso")
+        } else {
+          toast("Falha ao enviar")
+        }
+      })
   };
 
   return (
