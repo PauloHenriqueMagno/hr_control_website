@@ -2,14 +2,17 @@ import { DivBtn, DivForm, EnterBtn, FormBox, LoginBox, TitleLogin } from "./styl
 import {LoginIcon, MailIcon, LockClosedIcon} from "@heroicons/react/solid"
 import { useAccount } from "../../providers/Account";
 import { useForm } from "react-hook-form";
+import { useHistory } from "react-router-dom";
 
 const LoginForm = () => {
     const {login} = useAccount();
     const {register, handleSubmit} = useForm();
     
+    const history = useHistory()
+
     const onSubmit = (data) => {
         login(data);
-        console.log(data);
+        history.push('/hr/employees');
     }
 
     return (

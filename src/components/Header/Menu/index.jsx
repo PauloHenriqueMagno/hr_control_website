@@ -5,7 +5,7 @@ import { Nav } from "./style"
 const Menu = () => {
     return (
         <Nav>
-            <a href="#">LINK 1</a>
+            <a href="/hr/employees">Funcionarios</a>
             <a href="#">LINK 2</a>
             <a href="#">LINK 3</a>
         </Nav>
